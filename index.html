@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>¡Mis 15 Años - Krisha Yarely!</title>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- ===============================
+       1. PORTADA INICIAL (LANDING)
+       =============================== -->
+  <section id="landing-screen" class="fullscreen-view landing-bg">
+    <div class="landing-content">
+      <p class="font-sm subtitle-top">Te espera una aventura legendaria</p>
+      <h1 class="landing-title">Mis 15 Años</h1>
+      <h2 class="landing-name">Krisha Yarely</h2>
+      
+
+      
+      <button id="btn-ver-invitacion" class="btn btn-primary btn-large mt-md pulse shadow-glass">
+        Ver Invitación <i class="ph ph-envelope-open"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===============================
+       2. PANTALLA DE VIDEO
+       =============================== -->
+  <section id="video-screen" class="fullscreen-view hidden-view">
+    <button id="btn-skip-video" class="btn-skip" aria-label="Saltar Video">
+      Saltar <i class="ph ph-fast-forward"></i>
+    </button>
+    <!-- Para usar video, reemplazar Video Invitación.mp4 en la carpeta -->
+    <video id="intro-video" playsinline preload="auto">
+      <source src="Video Invitación.mp4" type="video/mp4">
+      Tu navegador no soporta reproducción de video.
+    </video>
+  </section>
+
+  <!-- ===============================
+       3. INVITACIÓN PRINCIPAL
+       =============================== -->
+  <div id="main-invitation" class="hidden-view">
+    
+    <button id="music-btn" class="music-controller" aria-label="Control de Música">
+      <i class="ph ph-music-notes"></i>
+    </button>
+    <!-- Para usar música, reemplazar audioPrincipal.mp3 en la carpeta -->
+    <audio id="bg-music" loop>
+      <source src="./audioPrincipal.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- HEADER / HERO -->
+    <header class="hero-section reveal-on-scroll">
+      <!-- Capas del overlay -->
+      <div class="hero-overlay"></div>
+      <div class="hero-overlay-gradient"></div>
+      <div class="hero-wave"></div>
+
+      <!-- Chispas/Brasas flotantes decorativas (reemplazan partículas tropicales) -->
+      <span class="hero-particle p1"></span>
+      <span class="hero-particle p2"></span>
+      <span class="hero-particle p3"></span>
+      <span class="hero-particle p4"></span>
+      <span class="hero-particle p5"></span>
+
+      <div class="hero-content">
+        <div class="hero-badge delay-1">👑 Fiesta Medieval 🐉</div>
+        <h1 class="title-main delay-2">15<span>de Krisha Yarely</span></h1>
+        <div class="hero-date-ribbon delay-3">
+          <!-- Fecha configurable en app.js y aquí -->
+          <span>06</span> Agosto &nbsp;·&nbsp; 5:00 pm
+        </div>
+        <button id="scroll-down-btn" class="scroll-btn delay-4">
+          <i class="ph ph-caret-double-down scrolling-indicator"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      
+      <!-- FAMILIA -->
+      <section id="family-section-anchor" class="family-section reveal-on-scroll mb-md">
+        <div class="leaf-decoration leaf-left"></div>
+        <div class="leaf-decoration leaf-right"></div>
+        
+        <div class="family-card glass-card">
+          <h3>Mis Padres:</h3>
+          <p>Edwin Oviedo Álvarez <br> Melanie Negrón Chávez</p>
+          
+          <h3 class="margin-top-md mt-sm">Mis Padrinos:</h3>
+          <p>
+            Marjorie Negrón Chávez <br>
+            Rosa Chávez Salas <br>
+            Leonor Quilla Sivincha <br>
+            Neil Cornejo Oviedo
+          </p>
+        </div>
+      </section>
+
+      <!-- FECHA Y COUNTDOWN -->
+      <section class="date-section reveal-on-scroll mb-lg">
+        <div class="date-big">
+          <!-- Fecha del evento en formato grande -->
+          <span class="day">06</span> 
+          <span class="month">Agosto</span>
+          <span class="divider">|</span>
+          <span class="time">5:00 <small>pm</small></span>
+        </div>
+
+        <div class="countdown-container mt-md glass-card">
+          <h4>Faltan:</h4>
+          <div id="countdown" class="countdown-grid">
+            <div class="cd-item"><span id="cd-days">0</span><span>Días</span></div>
+            <div class="cd-item"><span id="cd-hours">0</span><span>Horas</span></div>
+            <div class="cd-item"><span id="cd-minutes">0</span><span>Min</span></div>
+            <div class="cd-item"><span id="cd-seconds">0</span><span>Seg</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARRUSEL DE FOTOS -->
+      <section class="carousel-section reveal-on-scroll mb-lg">
+        <h3 class="section-title text-center" style="font-size: 1.8rem;">Mis Fotos</h3>
+        
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="photo-track">
+            <!-- Marcadores de posición, reemplazar fotos con las de Krisha Yarely -->
+            <img src="Imagen2.jpeg" alt="Recuerdo de Krisha Yarely 1" class="carousel-img active">
+            <img src="Imagen1.jpeg" alt="Recuerdo de Krisha Yarely 2" class="carousel-img">
+          </div>
+          <div class="carousel-controls">
+            <button id="btn-prev" aria-label="Anterior foto"><i class="ph ph-caret-left"></i></button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <button id="btn-next" aria-label="Siguiente foto"><i class="ph ph-caret-right"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ITINERARIO -->
+      <section class="itinerary-section reveal-on-scroll mb-lg">
+        <h3 class="section-title text-center">Itinerario</h3>
+        <p class="text-center mb-sm font-sm">Lo que tenemos preparado</p>
+        
+        <div class="timeline glass-card">
+          <div class="time-item">
+            <div class="time-icon">🏰</div>
+            <div class="time-content">
+              <span class="time-badge">5:00 pm — 7:00 pm</span>
+              <p class="time-desc">Recepción de Invitados</p>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-icon">👑</div>
+            <div class="time-content">
+              <span class="time-badge">7:00 pm</span>
+              <p class="time-desc">Presentación de la Quinceañera</p>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-icon">📜</div>
+            <div class="time-content">
+              <span class="time-badge">7:00 pm — 8:00 pm</span>
+              <p class="time-desc">Ceremonia Principal</p>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-icon">🐉</div>
+            <div class="time-content">
+              <span class="time-badge">8:00 pm</span>
+              <p class="time-desc">Fiesta Medieval</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UBICACIÓN -->
+      <section class="location-section reveal-on-scroll mb-lg">
+        <div class="glass-card location-card text-center">
+          <i class="ph ph-castle icon-lg"></i>
+          <h3 class="section-title mt-xs">Lugar</h3>
+          <p class="bold mt-xs">Local "Los Portales de Villa"</p>
+          <p class="address">Villa Ecológica MZ. G' Lt. 1 Zn. B, Alto Selva Alegre<br><small>(ref. Colegio Heimer School)</small></p>
+          
+          <div class="map-container mt-sm">
+            <!-- Mapa geolocalizado en base a Heimer School (ref del local) -->
+            <iframe src="https://maps.google.com/maps?q=-16.35162,-71.52319&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación del Local Los Portales de Villa"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓDIGO DE VESTIMENTA Y REGALOS -->
+      <section class="details-section reveal-on-scroll mb-lg">
+        <div class="glass-card dresscode-card text-center mb-md">
+          <i class="ph ph-shield-check icon-lg"></i>
+          <h3 class="section-title mt-xs">Código de Vestimenta</h3>
+          <p class="bold highlight-text fade-color">Gala / Medieval Elegante</p>
+          
+          <div class="colors-container mt-md">
+            <p class="font-sm mb-xs" style="max-width: 280px; margin: 0 auto;">Colores de la Quinceañera (evitar vestir en estos tonos):</p>
+            <div class="color-circles">
+              <span class="circle bg-verde-olivo" title="Verde Olivo"></span>
+              <span class="circle bg-verde-claro" title="Verde Claro"></span>
+              <span class="circle bg-oro" title="Dorado / Oro"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card gifts-card text-center">
+          <div class="gifts-icons mb-xs">
+            <i class="ph ph-gift icon-xl"></i>
+            <span class="font-sm mx-xs">y/o</span>
+            <i class="ph ph-envelope-simple icon-xl"></i>
+          </div>
+          <h3 class="section-title">Regalos</h3>
+          <p class="font-sm mt-xs">Si deseas hacerme un presente, el salón contará con cofre de regalos.</p>
+        </div>
+      </section>
+
+
+
+      <!-- RSVP FORM (ENVIAR A WHATSAPP) -->
+      <section class="rsvp-section reveal-on-scroll mb-sm">
+        <div class="glass-card rsvp-card text-center">
+          <h3 class="section-title emphasis" style="margin-bottom: 10px;">Confirmar Asistencia</h3>
+          <p class="mb-sm">Por favor, confirma tu asistencia directamente por WhatsApp</p>
+          
+          <form id="rsvp-form" class="rsvp-form mt-sm">
+            <div class="form-group mb-sm">
+              <label for="guest-name" style="display:none;">Nombre Completo</label>
+              <input type="text" id="guest-name" name="nombres" placeholder="Nombre Completo" required aria-label="Ingresa tu nombre completo">
+            </div>
+            
+            <div class="form-group mb-xs">
+              <label for="guest-phone" style="display:none;">Número de Teléfono</label>
+              <input type="tel" id="guest-phone" name="celular" placeholder="Número de Teléfono" required aria-label="Ingresa tu número de teléfono" pattern="[0-9]+">
+            </div>
+            
+            <div class="form-group mb-xs">
+              <label for="guest-attendance" style="display:none;">¿Asistirás?</label>
+              <select id="guest-attendance" name="asistencia" required aria-label="¿Asistirás?" class="custom-select">
+                <option value="" disabled selected>¿Asistirás?</option>
+                <option value="Sí, con gusto iré">Sí, con gusto iré</option>
+                <option value="No podré asistir">No podré asistir</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-submit mt-sm pulse">Confirmar por WhatsApp <i class="ph ph-whatsapp-logo"></i></button>
+          </form>
+        </div>
+      </section>
+
+      <!-- MENSAJE FINAL -->
+      <section class="reveal-on-scroll mt-md mb-xl">
+        <div class="farewell-card glass-card text-center">
+          <div class="farewell-emojis">🐉 ⚔️ 🏰 👑 🕯️</div>
+          <p class="farewell-quote">El destino nos une en esta noche de dragones, magia y leyendas.</p>
+          <div class="farewell-title-wrap">
+            <h2 class="farewell-title">¡TE ESPERO!</h2>
+          </div>
+          <p class="farewell-signature">Con amor, <strong>Krisha Yarely</strong> 👑</p>
+        </div>
+      </section>
+
+    </main>
+  </div> <!-- Fin #main-invitation -->
+
+  <script src="app.js"></script>
+</body>
+</html>
